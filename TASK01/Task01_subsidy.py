@@ -1,49 +1,59 @@
-"""Q1: State electricity subsidy eligibility."""
 
-def separate_ifs(units, ration_card, elderly_over_80):
-    decisions = []
-    # Demonstrates why overlapping independent rules can produce multiple results.
+# Q1: Electricity Subsidy Eligibility
+
+def separate_ifs(units, ration_card, elderly):
     if units <= 100:
-        decisions.append("Full subsidy")
+        print("Full subsidy")
+
     if 101 <= units <= 200 and ration_card:
-        decisions.append("Partial subsidy")
-    if units > 200:
-        decisions.append("No subsidy")
-    if units > 200 and elderly_over_80:
-        decisions.append("Special elderly subsidy")
-    return decisions or ["No subsidy"]
+        print("Partial subsidy")
+
+    if 101 <= units <= 200 and not ration_card:
+        print("No subsidy")
+
+    if units > 200 and elderly:
+        print("Special elderly subsidy")
+
+    if units > 200 and not elderly:
+        print("No subsidy")
 
 
-def chained_decision(units, ration_card, elderly_over_80):
+def chained_decision(units, ration_card, elderly):
     if units <= 100:
         return "Full subsidy"
-    elif 101 <= units <= 200:
-        if ration_card:
-            return "Partial subsidy"
-        else:
-            return "No subsidy"
-    elif units > 200:
-        if elderly_over_80:
-            return "Special elderly subsidy"
-        else:
-            return "No subsidy"
+
+    elif 101 <= units <= 200 and ration_card:
+        return "Partial subsidy"
+
+    elif 101 <= units <= 200 and not ration_card:
+        return "No subsidy"
+
+    elif units > 200 and elderly:
+        return "Special elderly subsidy"
+
+    else:
+        return "No subsidy"
 
 
-def main():
-    households = [
-        ("H1", 100, False, False),
-        ("H2", 101, True, False),
-        ("H3", 101, False, False),
-        ("H4", 200, True, False),
-        ("H5", 200, False, False),
-        ("H6", 201, False, False),
-        ("H7", 201, False, True),
-        ("H8", 80, True, True),
-    ]
-    print("Household | Units | Separate-if results | Chained result")
-    for name, units, card, elderly in households:
-        print(f"{name:9} | {units:5} | {', '.join(separate_ifs(units, card, elderly))} | "
-              f"{chained_decision(units, card, elderly)}")
+# Test eight households
+households = [
+    (100, False, False),
+    (101, True, False),
+    (101, False, False),
+    (200, True, False),
+    (200, False, False),
+    (201, False, False),
+    (201, False, True),
+    (80, True, True)
+]
 
-if __name__ == "__main__":
-    main()
+print("SEPARATE IF STATEMENTS")
+for units, card, elderly in households:
+    print("Units:", units)
+    separate_ifs(units, card, elderly)
+    print()
+
+print("IF-ELIF-ELSE")
+for units, card, elderly in households:
+    print("Units:", units,
+          "->", chained_decision(units, card, elderly))
