@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CSA08-<RegisterNumber>-Assignment2
 
 **Student name:** <Your Name>  
@@ -42,3 +43,6 @@ Run each command from the repository root in the VS Code terminal:
 ## Important
 
 This is a starter implementation. Review the programs, test them yourself, and add the written analysis, predictions, measurements, screenshots and report required by your assignment sheet. Replace the repository name and placeholders before submission.
+=======
+# CSA08-1924260076-Assignment2
+>>>>>>> 9025e866e5bb65fe01163ca9250749ea83b215cb
