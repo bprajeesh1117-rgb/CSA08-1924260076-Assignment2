@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-# CSA08-<RegisterNumber>-Assignment2
+CSA08-1924260076-Assignment2
 
-**Student name:** <Your Name>  
-**Register number:** <Your Register Number>  
-**Python version:** Record your installed version using `python --version`  
+**Student name:** PRAJEESH B 
+**Register number:** 1924260076  
+**Python version:** `Python 3.13.17`  
 **Libraries:** Python standard library only (`time`, `statistics`, `functools`, `sys`)  
 **requirements.txt:** No third-party packages required.
 
